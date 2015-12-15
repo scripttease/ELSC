@@ -15,6 +15,9 @@ bundle exec rails server
 
 # Run the tests
 bundle exec rspec
+
+# Run the test watcher
+bundle exec guard
 ```
 
 

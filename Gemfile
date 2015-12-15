@@ -29,6 +29,6 @@ group :development do
   # Interactive debugger in the error page
   gem 'web-console', '~> 2.0'
 
-  # Magic to speed up app development load time
-  gem 'spring'
+  # Automatically run tests on file changes
+  gem 'guard-rspec', require: false
 end
