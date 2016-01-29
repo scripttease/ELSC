@@ -1,7 +1,7 @@
 require 'sinatra'
 
 get '/' do
-  'Hello World!'
+  erb(:index)
 end
 get '/about' do
   'All about world!'
