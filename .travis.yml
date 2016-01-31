@@ -1,0 +1,4 @@
+sudo: false # faster builds
+
+notifications:
+  email: false

@@ -1,6 +1,8 @@
 ELSWC
 =====
 
+[![Build Status](https://travis-ci.org/scripttease/ELSWC.svg?branch=master)](https://travis-ci.org/scripttease/ELSWC)
+
 This is a web app for the east london sex workers' collective.
 
 ## Setup
@@ -13,6 +15,9 @@ gem install bundler
 
 # Install the dependencies
 bundle install
+
+# Run the tests
+bundle exec rake test
 
 # Run the application
 bundle exec shotgun
