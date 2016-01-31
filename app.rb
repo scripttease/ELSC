@@ -6,21 +6,27 @@ get '/' do
 end
 get '/about' do
   @title = 'About the ELSW'
+  erb(:about)
 end
 get '/people' do
-  "Meet the workers!"
+  @title = 'Meet the workers!'
+  erb(:people)
 end
-get '/TsAndCs' do
-  "What you get from us and what we get from you"
+get '/terms-and-conditions' do
+  @title = 'What you get from us and what we get from you'
+  erb(:terms_and_conditions)
 end
 get '/join' do
-  "Sign up (client)"
+  @title = 'Sign up (client)'
+  erb(:join)
 end
 get '/contact' do
-  "Get in touch"
+  @title = 'Get in touch'
+  erb(:contact)
 end
 get '/profile/:name' do
   name = params[:name]
-  "Hello #{name.capitalize}"
+  @title = '"Hello #{name.capitalize}"'
+  #erb(:profile)
 end
 
