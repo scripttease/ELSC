@@ -1,11 +1,7 @@
 require_relative "test_helper"
 
-class PagesTest < MiniTest::Test
+class PagesTest < TestCase
   include Rack::Test::Methods
-
-  def app
-    ELSWC
-  end
 
   def test_hello_world
     assert_equal 1, 1

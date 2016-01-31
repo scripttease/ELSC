@@ -17,7 +17,7 @@ gem install bundler
 bundle install
 
 # Run the tests
-bundle exec rake test
+bundle exec rake
 
 # Run the application
 bundle exec shotgun
