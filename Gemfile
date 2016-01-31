@@ -1,6 +1,4 @@
-# A Gemfile is responsible for specifying your project dependecies, so that
-# anyone who uses your app will have the correct versions installed on their
-# machine
+# A Gemfile is responsible for specifying your project dependecies, so that anyone who uses your app will have the correct versions installed on their machine
 source "https://rubygems.org"
 
 # sinatra is a web framework
@@ -10,4 +8,9 @@ group :development do
 
   # this automatically reloads the application in dev
   gem "shotgun"
+end
+
+group :development, :test do
+  gem "minitest"
+  gem "rack-test"
 end

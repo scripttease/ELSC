@@ -1,41 +1,37 @@
 require 'sinatra/base'
+require 'tilt/erb'
 
 class ELSWC < Sinatra::Application
 
   get '/' do
-    @title = 'Welcome to ELSWC' 
-    erb(:index)
+    erb :index, locals: { title: 'Welcome to ELSWC' }
   end
 
   get '/about' do
-    @title = 'About the ELSW'
-    erb(:about)
+    erb :about, locals: { title: 'About the ELSW' }
   end
 
   get '/people' do
-    @title = 'Meet the workers!'
-    erb(:people)
+    erb :people, locals: { title: 'Meet the workers!' }
   end
 
   get '/terms-and-conditions' do
-    @title = 'What you get from us and what we get from you'
-    erb(:terms_and_conditions)
+    erb :terms_and_conditions, locals: {
+      title: 'What you get from us and what we get from you'
+    }
   end
 
   get '/join' do
-    @title = 'Sign up (client)'
-    erb(:join)
+    erb :join, locals: { title: 'Sign up (client)' }
   end
 
   get '/contact' do
-    @title = 'Get in touch'
-    erb(:contact)
+    erb :contact, locals: { title: 'Get in touch' }
   end
 
   get '/profile/:name' do
     name = params[:name]
-    @title = '"Hello #{name.capitalize}"'
-    #erb(:profile)
+    erb :profile, locals: { title: "Hello #{name.capitalize}" }
   end
 
 end
