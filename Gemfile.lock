@@ -35,7 +35,11 @@ GEM
     sinatra-activerecord (2.0.9)
       activerecord (>= 3.2)
       sinatra (~> 1.0)
+    slim (3.0.6)
+      temple (~> 0.7.3)
+      tilt (>= 1.3.3, < 2.1)
     sqlite3 (1.3.11)
+    temple (0.7.6)
     thread_safe (0.3.5)
     tilt (2.0.2)
     tzinfo (1.2.2)
@@ -52,6 +56,7 @@ DEPENDENCIES
   shotgun
   sinatra
   sinatra-activerecord
+  slim
   sqlite3
 
 BUNDLED WITH

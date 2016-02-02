@@ -13,6 +13,9 @@ gem "sinatra-activerecord"
 # Adaptor for the SQLite database
 gem "sqlite3"
 
+# template language for joyous html replacement
+gem "slim"
+
 # removes everything from database after each test run and each individiual
 # test in the test run
 gem "database_cleaner"
