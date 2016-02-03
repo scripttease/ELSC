@@ -1,0 +1,53 @@
+@-ms-viewport {
+    width: extend-to-zoom;
+    zoom: 1.0;
+}
+
+/*Strip the ul of padding and list styling*/
+ul.navbar {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	position: fixed;
+}
+
+/*Create a horizontal list with spacing*/
+ul.navbar li {
+/*	display:inline-block;*/
+	float: left;
+	margin-right: 0.05em;
+}
+
+/*Style for menu links*/
+ul.navbar li a {
+	display:block;
+	min-width: 7em;
+	height: 3em;
+	text-align: center;
+	line-height: 3em;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	color: #fff;
+	background: #2f3036;
+	text-decoration: none;
+}
+
+/*Hover state for top level links*/
+ul.navbar li:hover a {
+	background: #19c589;
+}
+
+/*Style for dropdown links*/
+ul.navbar li:hover ul a {
+	background: #f3f3f3;
+	color: #2f3036;
+	height: 3em;
+	line-height: 3em;
+}
+
+/*Hover state for dropdown links*/
+ul.navbar li:hover ul a:hover {
+	background: #19c589;
+	color: #fff;
+}
+
+

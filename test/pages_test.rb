@@ -12,6 +12,11 @@ class PagesTest < TestCase
     assert last_response.ok?
   end
   
+  def test_route_about
+    get "/about"
+    assert last_response.ok?
+  end
+
   def test_route_profile
     get "/profile/:name"
     assert last_response.ok?

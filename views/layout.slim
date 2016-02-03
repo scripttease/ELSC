@@ -2,10 +2,19 @@ doctype html
 html
   head
     meta charset='UTF-8'
+    meta name="viewport" content="initial-scale=1"
     title ELSWC
-    link
+    link rel="stylesheet" href="sass/style1.css" type="text/css"
     /[if lt IE 9] 
       script src="http://html5shiv.googlecode.com/svn/trunk/html5.js" 
-  body class='container'
-    h1 =title
-    == yield
+  body 
+    ul id="menu" class="navbar"
+      li 
+        a href="/"HOME
+      li 
+        a href="/about"ABOUT
+      li
+        a href="/profile/params:name"PROFILE
+
+      h2 =title
+      == yield

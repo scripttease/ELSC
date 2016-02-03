@@ -11,6 +11,10 @@ class ELSWC < Sinatra::Application
     slim :index, locals: { title: "Welcome to ELSWC" }
   end
 
+  get "/about" do
+    slim :about, locals: { title: "About ELSWC" }
+  end
+
   get "/profile/:name" do
     name = params[:name]
     slim :profile, locals: { title: "Hello #{name.capitalize}" }
