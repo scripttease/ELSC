@@ -9,5 +9,3 @@ class User < ActiveRecord::Base
 #  end
 #
 end
-
-user = User.create(name: "Louis")
