@@ -24,7 +24,6 @@ class ELSWC < Sinatra::Application
   end
 
   get '/users' do
-    @title = params[:title]
     @users = User.all
     @title = "Welcome to ELSWC"
     slim :user
