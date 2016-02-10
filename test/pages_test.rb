@@ -23,12 +23,17 @@ class PagesTest < TestCase
   end
   
   def test_route_users
-    get "/:name"
+    get "/users"
     assert last_response.ok?
   end
 
   def test_route_id
-    get "/#{name}/:id"
+    get "/users/:id"
+    assert last_response.ok?
+  end
+
+  def test_route_id
+    get "/signup"
     assert last_response.ok?
   end
 end

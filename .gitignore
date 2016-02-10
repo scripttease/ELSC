@@ -16,3 +16,4 @@
 !/log/.keep
 /tmp
 *.sqlite3
+/.sass-cache

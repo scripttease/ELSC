@@ -4,7 +4,7 @@ html
     meta charset='UTF-8'
     meta name="viewport" content="initial-scale=1"
     title ELSWC
-    link rel="stylesheet" href="/sass/style1.css" type="text/css"
+    link rel="stylesheet" href="/sass/layout.css" type="text/css"
     /[if lt IE 9] 
       script src="http://html5shiv.googlecode.com/svn/trunk/html5.js" 
   body 
@@ -14,8 +14,14 @@ html
       li 
         a href="/about" ABOUT
       li
-        - name = "alice" # TODO
+        - name = "alice"
         a href="/profile/#{name}" PROFILE
+        /*== link_to "Profile", @user
+      li
+        - id = 1
+        a href="/users/#{id}" SHOW
+      li
+        a href="/signup" SIGN UP
 
       h2 =title
       == yield
