@@ -5,13 +5,13 @@ html
     meta name="viewport" content="initial-scale=1"
     title ELSWC
     link rel="stylesheet" href="/sass/layout.css" type="text/css"
-    /[if lt IE 9] 
-      script src="http://html5shiv.googlecode.com/svn/trunk/html5.js" 
-  body 
+    /[if lt IE 9]
+      script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"
+  body
     ul id="menu" class="navbar"
-      li 
+      li
         a href="/" HOME
-      li 
+      li
         a href="/about" ABOUT
       li
         - name = "alice"
@@ -23,5 +23,5 @@ html
       li
         a href="/signup" SIGN UP
 
-      h2 =title
+      h2= @title
       == yield

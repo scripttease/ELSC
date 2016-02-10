@@ -6,12 +6,12 @@ class PagesTest < TestCase
   def test_hello_world
     assert_equal 1, 1
   end
-  
+
   def test_route_home
     get "/"
     assert last_response.ok?
   end
-  
+
   def test_route_about
     get "/about"
     assert last_response.ok?
@@ -19,21 +19,6 @@ class PagesTest < TestCase
 
   def test_route_profile
     get "/profile/:name"
-    assert last_response.ok?
-  end
-  
-  def test_route_users
-    get "/users"
-    assert last_response.ok?
-  end
-
-  def test_route_id
-    get "/users/:id"
-    assert last_response.ok?
-  end
-
-  def test_route_id
-    get "/signup"
     assert last_response.ok?
   end
 end
