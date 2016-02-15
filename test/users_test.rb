@@ -15,4 +15,13 @@ class UsersTest < TestCase
     assert_equal 404, last_response.status
     assert last_response.body.include? "Page not found"
   end
+
+  def test_users_index
+    User.create!(name: "Alice", slug: "alice")
+    User.create!(name: "Louis", slug: "louis")
+    get "/users"
+    assert last_response.ok?
+    assert last_response.body.include? "Alice"
+    assert last_response.body.include? "Louis"
+  end
 end

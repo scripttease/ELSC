@@ -26,12 +26,11 @@ class ELSWC < Sinatra::Application
   get '/users' do
     @users = User.all
     @title = "Welcome to ELSWC"
-    slim :user
+    slim :"user/index"
   end
 
   get "/signup" do
     @title = params[:title]
-    #@users = User.new
     slim :hello_form, locals: { title: "Sign up!" }
   end
 
@@ -46,7 +45,7 @@ class ELSWC < Sinatra::Application
     @user  = User.find_by(slug: params[:slug])
     @title = "Welcome to ELSWC",
     if @user
-      slim :show
+      slim :"user/show"
     else
       status 404
       slim :not_found
