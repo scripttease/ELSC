@@ -3,5 +3,5 @@ h3 Image
 ul.images
   - @images.each do |image|
     li
-      /need to put href to user here
-      img src= image.image_url
+      a href="/users/#{image.user.slug}"
+        img src=image.image_url

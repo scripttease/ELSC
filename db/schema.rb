@@ -14,16 +14,21 @@
 ActiveRecord::Schema.define(version: 20160201112634) do
 
   create_table "images", force: :cascade do |t|
+    t.integer  "user_id"
     t.string   "image_url"
     t.string   "comment"
-    t.boolean  "published",  default: false
+    t.boolean  "published",  default: false, null: false
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
   end
+
+  add_index "images", ["user_id"], name: "index_images_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "slug"
   end
+
+  add_index "users", ["slug"], name: "index_users_on_slug"
 
 end

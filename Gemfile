@@ -32,4 +32,6 @@ group :development, :test do
   gem "minitest"
   # Rack web app test helpers
   gem "rack-test"
+  # Open the project in a REPL
+  gem "racksh"
 end
