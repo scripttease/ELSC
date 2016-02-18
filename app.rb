@@ -2,7 +2,8 @@ require "sinatra/base"
 require "tilt/erb"
 require "sinatra/activerecord"
 require "slim"
-require_relative "./model"
+require_relative "./models/user"
+require_relative "./models/image"
 
 class ELSWC < Sinatra::Application
   register Sinatra::ActiveRecordExtension
@@ -50,5 +51,11 @@ class ELSWC < Sinatra::Application
       status 404
       slim :not_found
     end
+  end
+  
+  get '/images' do
+    @images = Image.all
+    @title = "Welcome to ELSWC"
+    slim :"image/index"
   end
 end
