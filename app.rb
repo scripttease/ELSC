@@ -43,8 +43,8 @@ class ELSWC < Sinatra::Application
   end
 
   get '/users/:slug' do
+    @title = "Welcome to ELSWC"
     @user  = User.find_by(slug: params[:slug])
-    @title = "Welcome to ELSWC",
     if @user
       slim :"user/show"
     else
