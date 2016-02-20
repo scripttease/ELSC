@@ -6,20 +6,22 @@ html
     title ELSWC
     link rel="stylesheet" href="/sass/layout.css" type="text/css"
   body
-    ul id="menu" class="navbar"
-      li
-        a href="/" HOME
-      li
-        a href="/about" ABOUT
-      li
-        - name = "alice"
-        a href="/profile/#{name}" PROFILE
-      li
-        a href="/users" USER LIST
-      li
-        a href="/images" IMAGE LIST
-      li
-        a href="/signup" SIGN UP
+    #navcontainer
+      ul#menu.navbar
+        li
+          a href="/" HOME
+        li
+          a href="/about" ABOUT
+        li
+          - name = "alice"
+          a href="/profile/#{name}" PROFILE
+        li
+          a href="/users" USER LIST
+        li
+          a href="/images" IMAGE LIST
+        li
+          a href="/signup" SIGN UP
 
-    h2= @title
-    == yield
+  h2= @title
+
+  == yield

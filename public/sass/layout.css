@@ -3,23 +3,23 @@
     zoom: 1.0;
 }
 
-/*Strip the ul of padding and list styling*/
-ul.navbar {
+/*remove bullets from list, remove left-indent in all browsers*/
+#navcontainer ul {
 	list-style-type: none;
 	margin: 0;
 	padding: 0;
-	position: fixed;
+/*	position: fixed*/;
 }
 
-/*Create a horizontal list with spacing*/
-ul.navbar li {
-/*	display:inline-block;*/
-	float: left;
+/*force the words in list into one line with spaces between blocks*/
+#navcontainer ul li {
+	display:inline-block;
+	margin-left: 0.05em;
 	margin-right: 0.05em;
 }
 
-/*Style for menu links*/
-ul.navbar li a {
+/*remove underline from words in list display block makes them padded*/
+#navcontainer ul li a {
 	display:block;
 	min-width: 7em;
 	height: 3em;
@@ -32,7 +32,7 @@ ul.navbar li a {
 }
 
 /*Hover state for top level links*/
-ul.navbar li:hover a {
+#navcontainer ul li a:hover {
 	background: #19c589;
 }
 
