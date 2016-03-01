@@ -3,5 +3,5 @@ h3 User
 ul
   - @users.each do |user|
     li
-      a href="/users/#{user.slug}"
-        = user.name
+      a href="/users/#{user.username}"
+        = user.username

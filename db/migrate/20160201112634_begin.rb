@@ -1,10 +1,12 @@
 class Begin < ActiveRecord::Migration
   def change
     create_table(:users) do |t|
-      t.string :name
-      t.string :slug
+      t.string :username
+      t.string :display_name
+      t.string :password
     end
-    add_index :users, :slug
+    add_index :users, :username
+    add_index :users, :display_name
 
     create_table(:images) do |t|
       t.references :user

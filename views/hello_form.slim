@@ -1,10 +1,16 @@
 h3 fill form
 
 form action="/signup" method="POST"
-    | Username
-    input type="text" name="username"
-    br
-    | Your Name:
-    input type="text" name="password"
-    br
-    input type="submit"
+  label Username:
+  input type="text" name="username"
+  br
+  label Display Name:
+  input type="text" name="display_name"
+  br
+  label Password:
+  input type="password" name="password"
+  br
+  label Confirm Password:
+  input type="password" name="password_confirmation"
+  br
+  input type="submit"

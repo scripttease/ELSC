@@ -18,7 +18,7 @@ class PagesTest < TestCase
   end
 
   def test_route_profile
-    get "/profile/:name"
+    get "/profile/:display_name"
     assert last_response.ok?
   end
 end

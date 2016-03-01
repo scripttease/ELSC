@@ -25,10 +25,12 @@ ActiveRecord::Schema.define(version: 20160201112634) do
   add_index "images", ["user_id"], name: "index_images_on_user_id"
 
   create_table "users", force: :cascade do |t|
-    t.string "name"
-    t.string "slug"
+    t.string "username"
+    t.string "display_name"
+    t.string "password"
   end
 
-  add_index "users", ["slug"], name: "index_users_on_slug"
+  add_index "users", ["display_name"], name: "index_users_on_display_name"
+  add_index "users", ["username"], name: "index_users_on_username"
 
 end

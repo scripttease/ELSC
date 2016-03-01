@@ -37,14 +37,17 @@ class ELSWC < Sinatra::Application
 
   post "/signup" do
     @title    = "Sign up"
-    @username = params[:username] || "blank username"
-    @password = params[:password] || "blank password"
+    @user = User.create!(
+      username:       params[:username],
+      display_name:   params[:display_name],
+      password:       params[:password],
+    )
     slim :form
   end
 
-  get '/users/:slug' do
+  get '/users/:username' do
     @title = "Welcome to ELSWC"
-    @user  = User.find_by(slug: params[:slug])
+    @user  = User.find_by(username: params[:username])
     if @user
       slim :"user/show"
     else
@@ -58,4 +61,5 @@ class ELSWC < Sinatra::Application
     @title = "Welcome to ELSWC"
     slim :"image/index"
   end
+  
 end

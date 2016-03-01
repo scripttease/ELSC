@@ -4,7 +4,7 @@ class UsersTest < TestCase
   include Rack::Test::Methods
 
   def test_users_show_route
-    User.create!(name: "Alice", slug: "alice")
+    User.create!(display_name: "Alice", username: "alice")
     get "/users/alice"
     assert last_response.ok?
     assert last_response.body.include? "Profile for Alice"
@@ -17,11 +17,37 @@ class UsersTest < TestCase
   end
 
   def test_users_index
-    User.create!(name: "Alice", slug: "alice")
-    User.create!(name: "Louis", slug: "louis")
+    User.create!(display_name: "Alice", username: "alice")
+    User.create!(display_name: "Louis", username: "louis")
     get "/users"
     assert last_response.ok?
     assert last_response.body.include? "Alice"
     assert last_response.body.include? "Louis"
   end
+
+  def test_user_images_list
+    louis = User.create!(display_name: "Louis", username: "louis")
+    image = Image.create!(
+      image_url: "/images/image1.jpg",
+      comment: "test",
+      user: louis,
+    )
+    get "/users/louis"
+    assert last_response.ok?
+    assert last_response.body.include? image.image_url
+  end
+
+  def test_user_with_no_images
+    User.create!(display_name: "Alice", username: "alice")
+    louis = User.create!(display_name: "Louis", username: "louis")
+    image = Image.create!(
+      image_url: "/images/image1.jpg",
+      comment: "test",
+      user: louis,
+    )
+    get "/users/alice"
+    assert last_response.ok?
+    refute last_response.body.include? image.image_url
+  end
+
 end
