@@ -6,6 +6,7 @@ require "sinatra/activerecord"
 require "database_cleaner"
 
 DatabaseCleaner.strategy = :transaction
+DatabaseCleaner.clean_with(:truncation)
 
 class TestCase < Minitest::Test
   def app

@@ -26,11 +26,13 @@ ActiveRecord::Schema.define(version: 20160201112634) do
 
   create_table "users", force: :cascade do |t|
     t.string "username"
+    t.string "email"
     t.string "display_name"
     t.string "password"
   end
 
   add_index "users", ["display_name"], name: "index_users_on_display_name"
+  add_index "users", ["email"], name: "index_users_on_email"
   add_index "users", ["username"], name: "index_users_on_username"
 
 end

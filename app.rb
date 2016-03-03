@@ -40,6 +40,7 @@ class ELSWC < Sinatra::Application
     @user = User.create!(
       username:       params[:username],
       display_name:   params[:display_name],
+      email:          params[:email],
       password:       params[:password],
     )
     slim :form
