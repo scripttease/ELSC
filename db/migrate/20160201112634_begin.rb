@@ -4,7 +4,6 @@ class Begin < ActiveRecord::Migration
       t.string :username
       t.string :email
       t.string :display_name
-      t.string :password
       t.string :password_digest
     end
     add_index :users, :username

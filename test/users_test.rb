@@ -181,8 +181,7 @@ class UsersTest < TestCase
     assert emaillength.invalid?
   end
 
-  def
-    test_email_format
+  def test_email_format
     emailformat = User.create!(
       display_name: "emailformat", 
       username: "emailformat", 
