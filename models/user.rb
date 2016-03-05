@@ -2,7 +2,13 @@ require "sinatra/activerecord"
 require_relative "../app"
 
 class User < ActiveRecord::Base
+  has_secure_password
+  validates(
+    :password,  presence: true, 
+                length: { minimum: 6 }
+            )
   has_many :images
+  before_save { self.email = email.downcase }
   validates(
     :username,  presence: true, 
                 length: { maximum: 50 },

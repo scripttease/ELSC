@@ -29,10 +29,11 @@ ActiveRecord::Schema.define(version: 20160201112634) do
     t.string "email"
     t.string "display_name"
     t.string "password"
+    t.string "password_digest"
   end
 
   add_index "users", ["display_name"], name: "index_users_on_display_name"
-  add_index "users", ["email"], name: "index_users_on_email"
+  add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["username"], name: "index_users_on_username"
 
 end

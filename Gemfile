@@ -5,6 +5,9 @@ source "https://rubygems.org"
 # Micro web framework
 gem "sinatra"
 
+# encryption for has_secure_password
+gem "bcrypt"
+
 # Database Object relational mapper
 # this provides a selection of methods, modules etc that allow us to interact
 # with the database

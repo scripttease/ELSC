@@ -8,6 +8,9 @@ class UsersTest < TestCase
       display_name: "Louis", 
       username: "testlouis",
       email: "testlouis.pil@mail.com",
+      password: "foobar1",
+      password_confirmation: "foobar1"
+
     )
     Image.create!(
       image_url: "/images/image1.jpg", 

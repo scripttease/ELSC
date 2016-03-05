@@ -5,9 +5,10 @@ class Begin < ActiveRecord::Migration
       t.string :email
       t.string :display_name
       t.string :password
+      t.string :password_digest
     end
     add_index :users, :username
-    add_index :users, :email
+    add_index :users, :email, unique: true
     add_index :users, :display_name
 
     create_table(:images) do |t|

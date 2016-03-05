@@ -3,12 +3,14 @@ User.create!(
   display_name: "Alice", 
   email: "alice.dee@mail.com",
   password: "password",
+  password_confirmation: "password",
 )
 louis = User.create!(
   username: "louis", 
   display_name: "Louis", 
   email: "louis.pil@mail.com",
   password: "password",
+  password_confirmation: "password",
 )
 
 Image.create!(

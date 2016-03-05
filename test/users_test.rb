@@ -7,7 +7,9 @@ class UsersTest < TestCase
     User.create!(
       display_name: "testalice1", 
       username: "testalice1", 
-      email: "testalice1.dee@mail.com"
+      email: "testalice1.dee@mail.com",
+      password: "foobar1",
+      password_confirmation: "foobar1"
     )
     get "/users/testalice1"
     assert last_response.ok?
@@ -24,12 +26,16 @@ class UsersTest < TestCase
     User.create!(
       display_name: "testalice3", 
       username: "testalice3", 
-      email: "testalice3.dee@mail.com"
+      email: "testalice3.dee@mail.com",
+      password: "foobar1",
+      password_confirmation: "foobar1"
     )
     User.create!(
       display_name: "Louis4", 
       username: "louis4", 
-      email: "louis4.pil@mail.com"
+      email: "louis4.pil@mail.com",
+      password: "foobar1",
+      password_confirmation: "foobar1"
     )
     get "/users"
     assert last_response.ok?
@@ -41,7 +47,9 @@ class UsersTest < TestCase
     louis5 = User.create!(
       display_name: "Louis5", 
       username: "louis5", 
-      email: "louis5.pil@mail.com"
+      email: "louis5.pil@mail.com",
+      password: "foobar1",
+      password_confirmation: "foobar1"
     )
     image = Image.create!(
       image_url: "/images/image1.jpg",
@@ -57,12 +65,16 @@ class UsersTest < TestCase
     User.create!(
       display_name: "testalice", 
       username: "testalice", 
-      email: "testalice.dee@mail.com"
+      email: "testalice.dee@mail.com",
+      password: "foobar1",
+      password_confirmation: "foobar1"
     )
     louis = User.create!(
       display_name: "Louis", 
       username: "louis",
       email: "louis.pil@mail.com",
+      password: "foobar1",
+      password_confirmation: "foobar1"
     )
     image = Image.create!(
       image_url: "/images/image1.jpg",
@@ -78,7 +90,9 @@ class UsersTest < TestCase
     mittens2 = User.create!(
       display_name: "Mittens2", 
       username: "mittens2", 
-      email: "mittens2.pil@mail.com"
+      email: "mittens2.pil@mail.com",
+      password: "foobar1",
+      password_confirmation: "foobar1"
     )
     assert mittens2.valid?
   end
@@ -87,7 +101,9 @@ class UsersTest < TestCase
     username_present = User.create!(
       display_name: "Usernamepresent",
       username: "temporaryusernamepresent",
-      email: "username@present.com"
+      email: "username@present.com",
+      password: "foobar1",
+      password_confirmation: "foobar1"
     )
     username_present.username = "       "
     assert username_present.invalid?
@@ -97,7 +113,9 @@ class UsersTest < TestCase
     usernamelength = User.create!(
       display_name: "Usernamelength", 
       username: "temporaryusernamelength",
-      email: "username@length.com"
+      email: "username@length.com",
+      password: "foobar1",
+      password_confirmation: "foobar1"
     )
     usernamelength.username = "a"*51 
     assert usernamelength.invalid?
@@ -107,7 +125,9 @@ class UsersTest < TestCase
     usernameformat = User.create!(
       display_name: "Usernameformat", 
       email: "username@format.com", 
-      username: "temporary"
+      username: "temporary",
+      password: "foobar1",
+      password_confirmation: "foobar1"
     )
     usernameformat.username = "Alice" #capitalised
     assert usernameformat.invalid?
@@ -123,12 +143,16 @@ class UsersTest < TestCase
     User.create!(
       display_name: "Uniqueuser", 
       username: "uniqueuser", 
-      email: "uniqueuser@mail.com"
+      email: "uniqueuser@mail.com",
+      password: "foobar1",
+      password_confirmation: "foobar1"
     )
     duplicate_username = User.create!(
       display_name: "Uniqueuser2", 
       username: "uniqueuser2", 
-      email: "uniqueuser2@mail.com"
+      email: "uniqueuser2@mail.com",
+      password: "foobar1",
+      password_confirmation: "foobar1"
     )
     duplicate_username.username = "uniqueuser"
     assert duplicate_username.invalid?
@@ -138,7 +162,9 @@ class UsersTest < TestCase
     emailpresent = User.create!(
       display_name: "Emailpresent",
       username: "emailpresent",
-      email: "temp@mail.com"
+      email: "temp@mail.com",
+      password: "foobar1",
+      password_confirmation: "foobar1"
     )
     emailpresent.email = "     "
     assert emailpresent.invalid?
@@ -147,7 +173,9 @@ class UsersTest < TestCase
   def test_email_length
     emaillength = User.create!(
       username: "emaillength", 
-      email: "temporary@length.com" 
+      email: "temporary@length.com",
+      password: "foobar1",
+      password_confirmation: "foobar1"
     )
     emaillength.email = "a" * 255 + "@example.com"
     assert emaillength.invalid?
@@ -158,7 +186,9 @@ class UsersTest < TestCase
     emailformat = User.create!(
       display_name: "emailformat", 
       username: "emailformat", 
-      email: "temporary@email.com"
+      email: "temporary@email.com",
+      password: "foobar1",
+      password_confirmation: "foobar1"
     )
 
     emailformat.email = "aliceatmail.com" #no @
@@ -179,14 +209,31 @@ class UsersTest < TestCase
     User.create!(
       display_name: "testalice7", 
       username: "testalice7", 
-      email: "testalice7.dee@mail.com"
+      email: "testalice7.dee@mail.com",
+      password: "foobar1",
+      password_confirmation: "foobar1"
     )
     duplicate_email = User.create!(
       display_name: "testalice8", 
       username: "testalice8", 
-      email: "testalice8.dee@mail.com"
+      email: "testalice8.dee@mail.com",
+      password: "foobar1",
+      password_confirmation: "foobar1"
     )
     duplicate_email.email = "testalice7.dee@mail.com"
     assert duplicate_email.invalid?
+  end
+
+  def test_password_present
+    passwordpresent = User.create!(
+      display_name: "Passwordpresent",
+      username: "passwordpresent",
+      email: "passwordpresent@mail.com",
+      password: "foobar1",
+      password_confirmation: "foobar1"
+    )
+    passwordpresent.password_confirmation = "     "
+    passwordpresent.password = "     "
+    assert passwordpresent.invalid?
   end
 end
