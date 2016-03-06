@@ -87,7 +87,7 @@ class UsersTest < TestCase
   end
 
   def test_user_valid
-    mittens2 = User.create!(
+    mittens2 = User.new(
       display_name: "Mittens2", 
       username: "mittens2", 
       email: "mittens2.pil@mail.com",
@@ -98,7 +98,7 @@ class UsersTest < TestCase
   end
 
   def test_username_present
-    username_present = User.create!(
+    username_present = User.new(
       display_name: "Usernamepresent",
       username: "temporaryusernamepresent",
       email: "username@present.com",
@@ -110,7 +110,7 @@ class UsersTest < TestCase
   end
 
   def test_username_length
-    usernamelength = User.create!(
+    usernamelength = User.new(
       display_name: "Usernamelength", 
       username: "temporaryusernamelength",
       email: "username@length.com",
@@ -122,7 +122,7 @@ class UsersTest < TestCase
   end
 
   def test_username_format
-    usernameformat = User.create!(
+    usernameformat = User.new(
       display_name: "Usernameformat", 
       email: "username@format.com", 
       username: "temporary",
@@ -147,7 +147,7 @@ class UsersTest < TestCase
       password: "foobar1",
       password_confirmation: "foobar1"
     )
-    duplicate_username = User.create!(
+    duplicate_username = User.new(
       display_name: "Uniqueuser2", 
       username: "uniqueuser2", 
       email: "uniqueuser2@mail.com",
@@ -159,7 +159,7 @@ class UsersTest < TestCase
   end
 
   def test_email_present
-    emailpresent = User.create!(
+    emailpresent = User.new(
       display_name: "Emailpresent",
       username: "emailpresent",
       email: "temp@mail.com",
@@ -171,7 +171,7 @@ class UsersTest < TestCase
   end
 
   def test_email_length
-    emaillength = User.create!(
+    emaillength = User.new(
       username: "emaillength", 
       email: "temporary@length.com",
       password: "foobar1",
@@ -182,7 +182,7 @@ class UsersTest < TestCase
   end
 
   def test_email_format
-    emailformat = User.create!(
+    emailformat = User.new(
       display_name: "emailformat", 
       username: "emailformat", 
       email: "temporary@email.com",
@@ -212,7 +212,7 @@ class UsersTest < TestCase
       password: "foobar1",
       password_confirmation: "foobar1"
     )
-    duplicate_email = User.create!(
+    duplicate_email = User.new(
       display_name: "testalice8", 
       username: "testalice8", 
       email: "testalice8.dee@mail.com",
@@ -224,7 +224,7 @@ class UsersTest < TestCase
   end
 
   def test_password_present
-    passwordpresent = User.create!(
+    passwordpresent = User.new(
       display_name: "Passwordpresent",
       username: "passwordpresent",
       email: "passwordpresent@mail.com",
@@ -234,5 +234,19 @@ class UsersTest < TestCase
     passwordpresent.password_confirmation = "     "
     passwordpresent.password = "     "
     assert passwordpresent.invalid?
+  end
+
+  def test_password_confirmation
+    passwordconfirmation = User.new(
+      display_name: "Passwordconfirmation",
+      username: "passwordconfirmation",
+      email: "passwordconfirmation@mail.com",
+      password: "foobar1",
+      password_confirmation: "foobar1"
+    )
+    passwordconfirmation.password = "foobar1"
+    passwordconfirmation.password_confirmation = "foobar2"
+    assert passwordconfirmation.invalid?
+    assert passwordconfirmation.errors[:password_confirmation].any?
   end
 end

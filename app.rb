@@ -31,19 +31,26 @@ class ELSWC < Sinatra::Application
   end
 
   get "/signup" do
-    @title = params[:title]
-    slim :hello_form, locals: { title: "Sign up!" }
+    @title = "Sign up"
+    @user = User.new
+    slim :hello_form
   end
 
   post "/signup" do
-    @title    = "Sign up"
-    @user = User.create!(
+    @user = User.new(
       username:       params[:username],
       display_name:   params[:display_name],
       email:          params[:email],
       password:       params[:password],
+      password_confirmation:  params[:password_confirmation],
     )
-    slim :form
+    if @user.save
+      @title = "Welcome!"
+      slim :form
+    else
+      @title = "Sign up"
+      slim :hello_form
+    end
   end
 
   get '/users/:username' do
