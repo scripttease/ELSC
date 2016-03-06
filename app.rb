@@ -38,11 +38,12 @@ class ELSWC < Sinatra::Application
 
   post "/signup" do
     @user = User.new(
-      username:       params[:username],
-      display_name:   params[:display_name],
-      email:          params[:email],
-      password:       params[:password],
-      password_confirmation:  params[:password_confirmation],
+      username:              params[:username],
+      display_name:          params[:display_name],
+      email:                 params[:email],
+      email_confirmation:    params[:email_confirmation],
+      password:              params[:password],
+      password_confirmation: params[:password_confirmation],
     )
     if @user.save
       @title = "Welcome!"

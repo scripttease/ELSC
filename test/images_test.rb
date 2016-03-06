@@ -8,6 +8,7 @@ class UsersTest < TestCase
       display_name: "Louis", 
       username: "testlouis",
       email: "testlouis.pil@mail.com",
+      email_confirmation: "testlouis.pil@mail.com",
       password: "foobar1",
       password_confirmation: "foobar1"
 

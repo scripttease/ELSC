@@ -13,9 +13,14 @@ class User < ActiveRecord::Base
   validates(
     :email,   
     presence: true, 
+    confirmation: true,
     length: { maximum: 255 }, 
     format: { with: VALID_EMAIL_REGEX },
     uniqueness: true
+  )
+  validates(
+    :email_confirmation,
+    presence: true
   )
   validates(
     :password,  
