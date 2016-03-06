@@ -275,7 +275,6 @@ class UsersTest < TestCase
       username: "emailconfirmation",
       email: "emailconfirmation@mail.com",
       email_confirmation: "emailconfirmation@mail.com",
-      email_confirmation: "emailconfirmation.com",
       password: "foobar1",
       password_confirmation: "foobar1"
     )
@@ -283,5 +282,17 @@ class UsersTest < TestCase
     emailconfirmation.email = "email.confirmation@mail.com"
     assert emailconfirmation.invalid?
     assert emailconfirmation.errors[:email_confirmation].any?
+  end
+
+  def test_valid_signup
+    assert_equal 0, User.count
+    post "/signup",
+      display_name: "emailconfirmation",
+      username: "emailconfirmation",
+      email: "emailconfirmation@mail.com",
+      email_confirmation: "emailconfirmation@mail.com",
+      password: "foobar1",
+      password_confirmation: "foobar1"
+    assert_equal 1, User.count
   end
 end

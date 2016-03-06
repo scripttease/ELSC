@@ -37,6 +37,7 @@ class ELSWC < Sinatra::Application
   end
 
   post "/signup" do
+    p params
     @user = User.new(
       username:              params[:username],
       display_name:          params[:display_name],
