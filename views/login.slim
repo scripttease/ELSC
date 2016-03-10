@@ -1,0 +1,12 @@
+-@user.errors.full_messages.each do |error|
+  div class="form-group"
+    = error
+div class="form-group"
+  form action="/login" method="POST"
+    label Email:
+    input type="email" name="email" value=@user.email
+    br
+    label Password:
+    input type="password" name="password"
+    br
+    input type="submit"

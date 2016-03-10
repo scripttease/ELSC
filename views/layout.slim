@@ -13,14 +13,19 @@ html
         li
           a href="/about" ABOUT
         li
-          - name = "alice"
-          a href="/profile/#{name}" PROFILE
-        li
           a href="/users" USER LIST
         li
           a href="/images" IMAGE LIST
-        li
-          a href="/signup" SIGN UP
+        - if current_user
+          li
+            a href="/users/#{current_user.username}" PROFILE
+          li
+            a href="/logout" LOG OUT
+        - else
+          li
+            a href="/login" LOG IN
+          li
+            a href="/signup" SIGN UP
 
   h2= @title
 

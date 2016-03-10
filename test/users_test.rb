@@ -295,4 +295,9 @@ class UsersTest < TestCase
       password_confirmation: "foobar1"
     assert_equal 1, User.count
   end
+
+  def test_sessions_enabled
+    
+
+  end
 end
