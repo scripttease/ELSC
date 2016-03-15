@@ -21,9 +21,13 @@ class ELSWC < Sinatra::Application
   end
 
   get "/login" do
-    @user = User.new
-    @title = "Please enter your login details"
-    slim :login
+    if current_user
+      redirect to "/"
+    else
+      @user = User.new
+      @title = "Please enter your login details"
+      slim :login
+    end
   end
   
   post "/login" do
@@ -38,8 +42,12 @@ class ELSWC < Sinatra::Application
   end
 
   get "/logout" do
-    session[:user_id] = nil
-    redirect to("/")
+    if current_user
+      session[:user_id] = nil
+      redirect to("/")
+    else
+      redirect to("/login")
+    end
   end
 
   get "/" do
@@ -52,11 +60,6 @@ class ELSWC < Sinatra::Application
     slim :about
   end
 
-  get "/profile/:name" do
-    @name = params[:name].capitalize
-    slim :profile
-  end
-
   get '/users' do
     @users = User.all
     @title = "Welcome to ELSWC"
@@ -64,9 +67,13 @@ class ELSWC < Sinatra::Application
   end
 
   get "/signup" do
-    @title = "Sign up"
-    @user = User.new
-    slim :hello_form
+    if current_user
+      redirect to("/")
+    else
+      @title = "Sign up"
+      @user = User.new
+      slim :hello_form
+    end
   end
 
   post "/signup" do
@@ -88,13 +95,17 @@ class ELSWC < Sinatra::Application
   end
 
   get '/users/:username' do
-    @title = "Welcome to ELSWC"
-    @user  = User.find_by(username: params[:username])
-    if @user
-      slim :"user/show"
+    if current_user
+      @title = "Welcome to ELSWC"
+      @user  = User.find_by(username: params[:username])
+      if @user
+        slim :"user/show"
+      else
+        status 404
+        slim :not_found
+      end
     else
-      status 404
-      slim :not_found
+      redirect to("/")
     end
   end
   
