@@ -2,6 +2,7 @@ require "sinatra/base"
 require "tilt/erb"
 require "sinatra/activerecord"
 require "slim"
+require "pry"
 require_relative "./models/user"
 require_relative "./models/image"
 

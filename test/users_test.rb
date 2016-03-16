@@ -4,7 +4,7 @@ class UsersTest < TestCase
   include Rack::Test::Methods
 
   def test_users_show_route
-    User.create!(
+     user = User.create!(
       display_name: "testalice1", 
       username: "testalice1", 
       email: "testalice1.dee@mail.com",
@@ -12,13 +12,21 @@ class UsersTest < TestCase
       password: "foobar1",
       password_confirmation: "foobar1"
     )
-    get "/users/testalice1"
+    get "/users/testalice1", {}, 'rack.session' => {:user_id => user.id}
     assert last_response.ok?
     assert last_response.body.include? "Profile for testalice1"
   end
 
   def test_users_show_for_unknown_user
-    get "/users/alice2"
+     user = User.create!(
+      display_name: "testalice1", 
+      username: "testalice1", 
+      email: "testalice1.dee@mail.com",
+      email_confirmation: "testalice1.dee@mail.com",
+      password: "foobar1",
+      password_confirmation: "foobar1"
+    )
+    get "/users/alice2", {}, 'rack.session' => {:user_id => user.id}
     assert_equal 404, last_response.status
     assert last_response.body.include? "Page not found"
   end
@@ -60,13 +68,14 @@ class UsersTest < TestCase
       comment: "test",
       user: louis5,
     )
-    get "/users/louis5"
+    get "/users/louis5", {}, 'rack.session' => {:user_id => louis5.id}
+
     assert last_response.ok?
     assert last_response.body.include? image.image_url
   end
 
   def test_user_with_no_images
-    User.create!(
+    testalice = User.create!(
       display_name: "testalice", 
       username: "testalice", 
       email: "testalice.dee@mail.com",
@@ -87,7 +96,8 @@ class UsersTest < TestCase
       comment: "test",
       user: louis,
     )
-    get "/users/testalice"
+    get "/users/testalice", {}, 'rack.session' => {:user_id => testalice.id}
+
     assert last_response.ok?
     refute last_response.body.include? image.image_url
   end

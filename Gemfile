@@ -39,4 +39,6 @@ group :development, :test do
   gem "minitest-around"
   # Open the project in a REPL
   gem "racksh"
+  #debugging gen
+  gem "pry-byebug"
 end

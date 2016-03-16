@@ -17,12 +17,22 @@ GEM
     arel (6.0.3)
     bcrypt (3.1.7)
     builder (3.2.2)
+    byebug (8.2.2)
+    coderay (1.1.1)
     database_cleaner (1.5.1)
     i18n (0.7.0)
     json (1.8.3)
+    method_source (0.8.2)
     minitest (5.8.4)
     minitest-around (0.3.2)
       minitest (~> 5.0)
+    pry (0.10.3)
+      coderay (~> 1.1.0)
+      method_source (~> 0.8.1)
+      slop (~> 3.4)
+    pry-byebug (3.3.0)
+      byebug (~> 8.0)
+      pry (~> 0.10)
     rack (1.6.4)
     rack-protection (1.5.3)
       rack
@@ -44,6 +54,7 @@ GEM
     slim (3.0.6)
       temple (~> 0.7.3)
       tilt (>= 1.3.3, < 2.1)
+    slop (3.6.0)
     sqlite3 (1.3.11)
     temple (0.7.6)
     thread_safe (0.3.5)
@@ -59,6 +70,7 @@ DEPENDENCIES
   database_cleaner
   minitest
   minitest-around
+  pry-byebug
   rack-test
   racksh
   rake
