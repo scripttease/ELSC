@@ -96,17 +96,17 @@ class ELSWC < Sinatra::Application
   end
 
   get '/users/:username' do
-    if current_user
       @title = "Welcome to ELSWC"
       @user  = User.find_by(username: params[:username])
+    if current_user == @user
       if @user
         slim :"user/show"
       else
-        status 404
-        slim :not_found
+        redirect to("/")
       end
     else
-      redirect to("/")
+      status 404
+      slim :not_found
     end
   end
   
