@@ -3,11 +3,20 @@ require "tilt/erb"
 require "sinatra/activerecord"
 require "slim"
 require "pry"
+# require "rack/csrf"
+# require "encrypted_cookie"
 require_relative "./models/user"
 require_relative "./models/image"
 
 class ELSWC < Sinatra::Application
-  enable :sessions
+
+  # enable :sessions
+  use Rack::Session::Cookie, :key => 'rack.session',
+                           # :domain => 'foo.com',
+                           # :path => '/',
+                           :expire_after => nil 
+                           # :secret => 'change_me',
+                           # :old_secret => 'also_change_me'
 
   register Sinatra::ActiveRecordExtension
   set :database_file, "config/database.yml"
@@ -98,8 +107,8 @@ class ELSWC < Sinatra::Application
   get '/users/:username' do
       @title = "Welcome to ELSWC"
       @user  = User.find_by(username: params[:username])
-    if current_user == @user
-      if @user
+    if @user
+      if current_user == @user
         slim :"user/show"
       else
         redirect to("/")
