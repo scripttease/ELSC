@@ -1,0 +1,7 @@
+require "sinatra/activerecord"
+require_relative "user"
+require_relative "login"
+require_relative "main"
+require_relative "signup"
+require_relative "images"
+require_relative "../app"
