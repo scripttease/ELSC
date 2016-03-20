@@ -1,4 +1,6 @@
-class ELSWC < Sinatra::Application
+require_relative "base_router"
+
+class SessionRouter < BaseRouter
 
   get "/login" do
     if current_user

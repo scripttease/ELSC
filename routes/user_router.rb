@@ -1,12 +1,14 @@
-class ELSWC < Sinatra::Application
+require_relative "base_router"
 
-  get '/users' do
+class UserRouter < BaseRouter
+
+  get '/' do
     @users = User.all
     @title = "Welcome to ELSWC"
     slim :"user/index"
   end
 
-  get '/users/:username' do
+  get '/:username' do
       @title = "Welcome to ELSWC"
       @user  = User.find_by(username: params[:username])
     if current_user == @user

@@ -1,4 +1,6 @@
-class ELSWC < Sinatra::Application
+require_relative "base_router"
+
+class MainRouter < BaseRouter
 
   get "/" do
     @title = "Welcome to ELSWC"

@@ -1,6 +1,8 @@
-class ELSWC < Sinatra::Application
+require_relative "base_router"
 
-  get '/images' do
+class ImageRouter < BaseRouter
+
+  get '/' do
     @images = Image.all
     @title = "Welcome to ELSWC"
     slim :"image/index"

@@ -1,6 +1,8 @@
-class ELSWC < Sinatra::Application
+require_relative "base_router"
 
-  get "/signup" do
+class SignupRouter < BaseRouter
+
+  get "/" do
     if current_user
       redirect to("/")
     else
@@ -10,7 +12,7 @@ class ELSWC < Sinatra::Application
     end
   end
 
-  post "/signup" do
+  post "/" do
     @user = User.new(
       username:              params[:username],
       display_name:          params[:display_name],
