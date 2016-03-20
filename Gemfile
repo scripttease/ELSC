@@ -23,6 +23,12 @@ gem "slim"
 # test in the test run
 gem "database_cleaner"
 
+# encrypts the Sinatra's sessions using 256-bit AES algorithm
+gem "encrypted_cookie"
+
+# Rack middleware, lessens hazards posed by CSRF
+gem "rack_csrf"
+
 group :development do
   # Reload the application automatically in dev
   gem "shotgun"
