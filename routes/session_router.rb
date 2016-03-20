@@ -16,7 +16,7 @@ class SessionRouter < BaseRouter
     user = User.find_by(email: params[:email].downcase)
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
-      redirect to("/")
+      redirect "/"
     else
       @title = "Please enter your login details"
       slim :login
@@ -26,7 +26,7 @@ class SessionRouter < BaseRouter
   get "/logout" do
     if current_user
       session[:user_id] = nil
-      redirect to("/")
+      redirect "/"
     else
       redirect to("/login")
     end

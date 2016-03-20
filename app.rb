@@ -4,7 +4,7 @@ ELSWC = Rack::URLMap.new(
   "/users" => UserRouter,
   "/images" => ImageRouter,
   "/signup" => SignupRouter,
-  "/session" => SessionRouter,
+  "/session/" => SessionRouter,
   "/" => MainRouter,
 )
 
