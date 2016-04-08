@@ -1,0 +1,7 @@
+require "sinatra/activerecord"
+require_relative "user_router"
+require_relative "session_router"
+require_relative "main_router"
+require_relative "signup_router"
+require_relative "image_router"
+require_relative "../app"
