@@ -1,6 +1,6 @@
 require_relative "base_router"
 
-class MainRouter < BaseRouter
+class StaticRouter < BaseRouter
 
   get "/" do
     @title = "Welcome to ELSWC"

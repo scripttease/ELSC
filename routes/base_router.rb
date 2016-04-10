@@ -1,5 +1,5 @@
 require "sinatra/base"
-require "tilt/erb"
+# require "tilt/erb"
 require "sinatra/activerecord"
 require "slim"
 require "pry"
