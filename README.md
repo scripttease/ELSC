@@ -1,9 +1,9 @@
-ELSWC
+ELSC
 =====
 
 [![Build Status](https://travis-ci.org/scripttease/ELSWC.svg?branch=master)](https://travis-ci.org/scripttease/ELSWC)
 
-This is a web app for the east london sex workers' collective.
+This is a web app for the East London Stripper Collective.
 
 ## Setup
 
