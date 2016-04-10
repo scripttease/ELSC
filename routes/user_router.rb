@@ -4,12 +4,12 @@ class UserRouter < BaseRouter
 
   get '/' do
     @users = User.all
-    @title = "Welcome to ELSWC"
+    @title = "Welcome to ELSC"
     slim :"user/index"
   end
 
   get '/:username' do
-      @title = "Welcome to ELSWC"
+      @title = "Welcome to ELSC"
       @user  = User.find_by(username: params[:username])
     if current_user == @user
       if @user
@@ -22,5 +22,5 @@ class UserRouter < BaseRouter
       slim :not_found
     end
   end
-  
+
 end

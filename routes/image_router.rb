@@ -4,8 +4,8 @@ class ImageRouter < BaseRouter
 
   get '/' do
     @images = Image.all
-    @title = "Welcome to ELSWC"
+    @title = "Welcome to ELSC"
     slim :"image/index"
   end
- 
+
 end

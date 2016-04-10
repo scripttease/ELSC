@@ -1,7 +1,7 @@
 ELSC
 =====
 
-[![Build Status](https://travis-ci.org/scripttease/ELSWC.svg?branch=master)](https://travis-ci.org/scripttease/ELSWC)
+[![Build Status](https://travis-ci.org/scripttease/ELSC.svg?branch=master)](https://travis-ci.org/scripttease/ELSC)
 
 This is a web app for the East London Stripper Collective.
 

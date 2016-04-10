@@ -10,7 +10,7 @@ DatabaseCleaner.clean_with(:truncation)
 
 class TestCase < Minitest::Test
   def app
-    ELSWC
+    ELSC
   end
 
   def current_user
