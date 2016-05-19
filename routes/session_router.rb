@@ -2,6 +2,8 @@ require_relative "base_router"
 
 class SessionRouter < BaseRouter
 
+set :show_exceptions, :after_handler
+
   get "/login" do
     if current_user
       redirect to "/"
