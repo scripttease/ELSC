@@ -45,11 +45,8 @@ class UserRouter < BaseRouter
 
   patch "/profile/edit" do
     @user = current_user
-    @display_name = current_user.display_name
     if current_user && current_user.authenticate(params[:password])
-      @user.update_attribute:display_name, @display_name 
-      #@user.update_attributes(display_name: params[:display_name])
-      @user.save!
+      @user.display_name = params[:display_name]
       if @user.save
         @title = "You have updated your profile"
         slim :"profile"
@@ -60,7 +57,7 @@ class UserRouter < BaseRouter
       end
     else
       @title = "Please check that you entered the correct password" 
-      slim :"users/profile/edit"
+      slim :"user/edit"
     end
   end
 end

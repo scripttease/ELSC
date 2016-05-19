@@ -12,8 +12,6 @@ class BaseRouter < Sinatra::Application
   register Sinatra::ActiveRecordExtension
   set :database_file, "../config/database.yml"
   set :views, "./views"
-  #set :show_exceptions, true if development?
-  #set :raise_errors, false
 
   helpers do
     def current_user
@@ -23,15 +21,4 @@ class BaseRouter < Sinatra::Application
     end
   end
 
-  configure :development do
-    disable :show_exceptions
-    enable :dump_errors,:raise_errors
-    use Rack::ShowExceptions
-  end
-
-  $exception = Sinatra::ShowExceptions.new(self)
-  error do 
-    @error = env['sinatra_error']
-    @error_message = $exception.pretty(env,@error)
-  end
 end
