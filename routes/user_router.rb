@@ -8,14 +8,24 @@ class UserRouter < BaseRouter
     slim :"user/index"
   end
 
+  get '/profile' do
+    if current_user
+      @user = current_user
+      slim :"profile"
+    else
+      @title = "Please enter your login details"
+      slim :login
+    end
+  end
+
   get '/:username' do
       @title = "Welcome to ELSC"
       @user  = User.find_by(username: params[:username])
-    if current_user == @user
-      if @user
-        slim :"user/show"
+    if @user
+      if current_user == @user
+        slim :"profile"
       else
-        redirect to("/")
+        slim :"user/show"
       end
     else
       status 404
@@ -23,4 +33,32 @@ class UserRouter < BaseRouter
     end
   end
 
+  get '/profile/edit' do
+    if current_user
+      @user = current_user
+      slim :"user/edit"
+    else
+      @title = "Please enter your login details"
+      slim :login
+    end
+  end
+
+  patch "/profile/edit" do
+    @user = current_user
+    if current_user && current_user.authenticate(params[:password])
+      @user.display_name = params[:display_name]
+      if @user.save
+        @title = "You have updated your profile"
+        slim :"profile"
+      else
+        @title = "life is ashes"
+        slim :"not_found"
+      end
+    else
+      @title = "Please check that you entered the correct password" 
+      slim :"user/edit"
+    end
+  end
 end
+
+# do i need to not use .new or am i then creating a new entry? what about using .update? How about display_name.update? How do i see errors/debug? can't remember the pry thing :(

@@ -20,6 +20,17 @@ class TestCase < Minitest::Test
     end
   end
 
+  def test_user
+    @test_user = User.create!(
+      display_name: "testuser", 
+      username: "testuser", 
+      email: "test@user.com",
+      email_confirmation: "test@user.com",
+      password: "foobar1",
+      password_confirmation: "foobar1"
+    )
+  end
+
   def setup
     DatabaseCleaner.start
   end

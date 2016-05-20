@@ -1,2 +1,9 @@
-h3 Profile pages
-p Welcome to your page, #{@username}
+h3 Welcome to your page, #{@user.display_name}
+
+p Your Images
+
+ul
+  - @user.images.each do |image|
+    li
+      a href="/users/#{image.user.username}"
+        img src=image.image_url

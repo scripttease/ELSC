@@ -2,6 +2,7 @@ User.create!(
   username: "alice", 
   display_name: "Alice", 
   email: "alice.dee@mail.com",
+  email_confirmation: "alice.dee@mail.com",
   password: "password",
   password_confirmation: "password",
 )
@@ -9,6 +10,7 @@ louis = User.create!(
   username: "louis", 
   display_name: "Louis", 
   email: "louis.pil@mail.com",
+  email_confirmation: "louis.pil@mail.com",
   password: "password",
   password_confirmation: "password",
 )

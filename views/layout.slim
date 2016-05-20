@@ -18,7 +18,10 @@ html
           a href="/images" IMAGE LIST
         - if current_user
           li
-            a href="/users/#{current_user.username}" PROFILE
+            a href="/users/profile" PROFILE
+            ul
+              li
+                a href="/users/profile/edit" EDIT
           li
             a href="/session/logout" LOG OUT
         - else

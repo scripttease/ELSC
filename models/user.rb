@@ -16,22 +16,26 @@ class User < ActiveRecord::Base
     confirmation: true,
     length: { maximum: 255 }, 
     format: { with: VALID_EMAIL_REGEX },
-    uniqueness: true
+    uniqueness: true,
+    allow_nil: true,
   )
   validates(
     :email_confirmation,
-    presence: true
+    presence: true,
+    allow_nil: true,
   )
   validates(
     :password,  
     presence: true, 
-    length: { minimum: 6 }
+    length: { minimum: 6 },
+    allow_nil: true,
   )
   validates(
     :username,  
     presence: true, 
     length: { maximum: 50 },
     format: { with: /\A[a-z0-9-]+\z/}, # Slug or URL type
-    uniqueness: true
+    uniqueness: true,
+    allow_nil: true,
   )
 end

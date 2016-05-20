@@ -1,0 +1,19 @@
+-@user.errors.full_messages.each do |error|
+  div class="form-group"
+    = error
+div class="form-group"
+  form action="/users/profile/edit" method="POST"
+    input type="hidden" name="_method" value="PATCH"
+    /label New Email:
+    /input type="email" name="email" value=@user.email
+    /br
+    /label New Username:
+    /input type="text" name="username" value=@user.username
+    /br
+    Label Display Name:
+    input type="text" name="display_name" value=@user.display_name
+    br
+    label Password:
+    input type="password" name="password"
+    br
+    input type="submit"
