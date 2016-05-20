@@ -5,6 +5,18 @@ I am still not seeing errors in my stacktrace :(
 From User List page clicking on display_name will not redirect to the user's page because it is using username. Need to validate display_name so it is a valid url OR need to change views and routes. Which is best?
 ## Issue 3
 Do I have security issues now that all validation fields will allow nil?
+## Issue 4
+CSS for layout view is not correct - should be a dropdown menu
+## Issue 5
+Are tests that use User.new actually failing to create a user?
+## Issue 6
+Test test_profile-updated is failing
+## Issue 7
+Failed tests do not give errors (Failed test no message given)
+## Issue 8
+Test test_sessions_enabled is not written
+## Issue 9
+Creating a test user in test_helper.rb doesn't work
 # Notes
 # Code I deleted
 ## In routes/user_router.rb

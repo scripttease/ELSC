@@ -52,7 +52,6 @@ class UserRouter < BaseRouter
         slim :"profile"
       else
         @title = "life is ashes"
-        @user.errors.messages.inspect
         slim :"not_found"
       end
     else

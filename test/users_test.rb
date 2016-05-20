@@ -14,7 +14,7 @@ class UsersTest < TestCase
     )
     get "/users/testalice1", {}, 'rack.session' => {:user_id => user.id}
     assert last_response.ok?
-    assert last_response.body.include? "Profile for testalice1"
+    assert last_response.body.include? "testalice1"
   end
 
   def test_users_show_for_unknown_user
@@ -41,7 +41,7 @@ class UsersTest < TestCase
       password_confirmation: "foobar1"
     )
     User.create!(
-      display_name: "Louis4", 
+      display_name: "louis4", 
       username: "louis4", 
       email: "louis4.pil@mail.com",
       email_confirmation: "louis4.pil@mail.com",
@@ -289,7 +289,7 @@ class UsersTest < TestCase
       password_confirmation: "foobar1"
     )
     emailconfirmation.email = "emailconfirmation@mail.com"
-    emailconfirmation.email = "email.confirmation@mail.com"
+    emailconfirmation.email_confirmation = "email.confirmation@mail.com"
     assert emailconfirmation.invalid?
     assert emailconfirmation.errors[:email_confirmation].any?
   end
@@ -306,8 +306,24 @@ class UsersTest < TestCase
     assert_equal 1, User.count
   end
 
-  def test_sessions_enabled
-    
+  # def test_sessions_enabled
+  # end
 
+  def test_profile_updated
+    # @test_user = User.create!
+     user = User.create!(
+      display_name: "testalice1", 
+      username: "testalice1", 
+      email: "testalice1.dee@mail.com",
+      email_confirmation: "testalice1.dee@mail.com",
+      password: "foobar1",
+      password_confirmation: "foobar1"
+    )
+    user.display_name = "updatedname"
+    patch "/users/profile/edit", {display_name: user.display_name}, 'rack.session' => {:user_id => user.id}
+    user.save!
+    assert last_response.ok?
+    assert user.save
+    assert last_response.body.include? "updatedname"
   end
 end
